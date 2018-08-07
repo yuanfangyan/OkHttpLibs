@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 
 import cyt.com.example.yuan.okhttplibrary.exector.HttpThread;
-import cyt.com.example.yuan.okhttplibrary.listener.ResponseListener;
+import cyt.com.example.yuan.okhttplibrary.listener.HttpListener;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
@@ -22,11 +22,11 @@ public class HttpTask<T> {
         return httpThread;
     }
 
-    private MediaType from_type = MediaType.parse("text/x-markdown; charset=utf-8");
+    private MediaType from_type = MediaType.parse("application/x-www-form-urlencoded");
     private static RequestBody requestBody;
-    private ResponseListener<T> responseListener;
+    private HttpListener<T> responseListener;
 
-    public HttpTask(String url, Map<String, String> headers, Map<String, String> bodys, ResponseListener<T> responseListener, Executor mainExecutor) {
+    public HttpTask(String url, Map<String, String> headers, Map<String, String> bodys, HttpListener<T> responseListener, Executor mainExecutor) {
         this.url = url;
         this.headers = headers;
         this.bodys = bodys;

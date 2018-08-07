@@ -1,7 +1,7 @@
 package cyt.com.example.yuan.okhttplibrary.listener;
 
-public interface ResponseListener<T> {
+public interface HttpListener<T> {
     void responseSuccess(String url, T t);
 
-    void responseFile(String url, String err);
+    void responseFail(String url, String err);
 }
